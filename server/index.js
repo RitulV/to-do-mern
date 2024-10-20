@@ -10,7 +10,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: [""],
+    origin: ["https://to-do-mern-sooty.vercel.app/"],
     methods: ["POST", "GET", "DELETE", "PUT"],
     credentials: true,
   })
