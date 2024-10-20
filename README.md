@@ -25,7 +25,7 @@ This repository contains the Frontend and Backend Code for the MERN To-do app
 5) Open the terminal in the "server" directory
 6) Type "npm install"
 
-## How to Run the Project
+## How to Run the server
 
 1) Open the terminal in the "server" directory
 2) To run the project in development mode, type "nodemon index"
