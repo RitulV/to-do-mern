@@ -3,12 +3,14 @@ import { Card } from "@mui/material";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
+const apiBaseUrl = process.env.REACT_APP_API_URL || "http://localhost:3000";
+
 function TodoUi({ setTodos }) {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
   const handleTodo = (title, description) => {
-    fetch("https://mern-todo-api-livid.vercel.app/todos", {
+    fetch(`${apiBaseUrl}/todos`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -18,7 +20,7 @@ function TodoUi({ setTodos }) {
         description: description,
       }),
     }).then((resp) => {
-      fetch("https://mern-todo-api-livid.vercel.app/todos", {
+      fetch(`${apiBaseUrl}/todos`, {
         method: "GET",
       }).then((resp) => {
         resp.json().then((data) => {

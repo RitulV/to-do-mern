@@ -4,11 +4,13 @@ import TodoUi from "./components/TodoUi";
 import AddTodo from "./components/AddTodo";
 import CssBaseline from "@mui/material/CssBaseline";
 
+const apiBaseUrl = process.env.REACT_APP_API_URL || "http://localhost:3000";
+
 function App() {
   const [todos, setTodos] = useState({});
 
   useEffect(() => {
-    fetch("https://mern-todo-api-livid.vercel.app/todos", {
+    fetch(`${apiBaseUrl}/todos`, {
       method: "GET",
     }).then((resp) => {
       resp.json().then((data) => {

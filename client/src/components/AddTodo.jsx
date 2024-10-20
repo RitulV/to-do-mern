@@ -3,6 +3,8 @@ import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 
+const apiBaseUrl = process.env.REACT_APP_API_URL || "http://localhost:3000";
+
 function AddTodo({ todos, setTodos }) {
   const [editMode, setEditMode] = useState(false);
   const [editId, setEditId] = useState(null);
@@ -14,7 +16,7 @@ function AddTodo({ todos, setTodos }) {
   }
 
   const handleDel = (id) => {
-    fetch(`https://mern-todo-api-livid.vercel.app/todos/${id}`, {
+    fetch(`${apiBaseUrl}/todos/${id}`, {
       method: "DELETE",
     }).then((resp) => {
       resp.json().then((data) => {
@@ -27,7 +29,7 @@ function AddTodo({ todos, setTodos }) {
   };
 
   const handleEdit = (id) => {
-    fetch(`https://mern-todo-api-livid.vercel.app/todos/${id}`, {
+    fetch(`${apiBaseUrl}/todos/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
